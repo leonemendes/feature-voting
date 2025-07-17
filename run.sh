@@ -80,7 +80,7 @@ main() {
     # Start frontend server
     print_step "Starting React Native frontend server..."
     cd frontend
-    npm start &
+    npx expo start -c &
     FRONTEND_PID=$!
     cd ..
     print_success "Frontend server started (PID: $FRONTEND_PID)"
