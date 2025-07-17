@@ -25,13 +25,13 @@ def create_feature():
     """
     try:
         # Get JSON data from request
-        data = request.get_json()
+        data = request.get_json(silent = True)
         
         # Validate required fields
         if not data:
             return jsonify({'error': 'No data provided'}), 400
         
-        if not data.get('title'):
+        if data.get('title') is None:
             return jsonify({'error': 'Title is required'}), 400
         
         if not data.get('title').strip():
@@ -91,7 +91,7 @@ def get_features():
         
         # Apply pagination if limit is specified
         if limit:
-            features = features[offset:offset + limit]
+            features = features[offset:(offset + limit)]
         
         # Return features
         return jsonify({

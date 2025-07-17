@@ -68,9 +68,27 @@ def create_app():
                 },
                 'health': {
                     'GET /api/health': 'Health check endpoint'
+                },
+                'stats': {
+                    'GET /api/stats': 'Get database statistics'
                 }
             }
         })
+    
+    # App health check endpoint
+    @app.route('/api/health')
+    def get_health():
+        """
+        Get health check endpoint.
+
+        Returns:
+            JSON response with health check
+        """
+        return jsonify({
+            'status': 'healthy',
+            'message': 'Health check endpoint.',
+            'version': '1.0.0'
+        }), 200
     
     # Database stats endpoint
     @app.route('/api/stats')

@@ -80,7 +80,7 @@ def remove_vote_from_feature(feature_id):
     """
     try:
         # Get user ID from request body
-        data = request.get_json()
+        data = request.get_json(silent = True)
         
         if not data or not data.get('user_id'):
             return jsonify({'error': 'User ID is required'}), 400

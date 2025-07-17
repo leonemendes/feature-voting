@@ -6,6 +6,8 @@ This module contains the Vote class that handles database operations for votes.
 from models.database import get_db_connection
 import uuid
 
+from typing import Optional, List
+
 class Vote:
     """
     Vote model representing a user's vote for a feature.
@@ -117,7 +119,7 @@ class Vote:
         return result is not None
     
     @staticmethod
-    def get_user_votes(user_id):
+    def get_user_votes(user_id: str) -> List[int]:
         """
         Get all votes by a specific user.
         
@@ -134,8 +136,8 @@ class Vote:
         votes = cursor.fetchall()
         conn.close()
         
-        return [vote['feature_id'] for vote in votes]
-    
+        return [vote['feature_id'] for vote in votes]     
+
     @staticmethod
     def get_vote_count(feature_id):
         """

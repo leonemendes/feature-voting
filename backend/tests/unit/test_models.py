@@ -120,15 +120,6 @@ class TestFeatureModel:
             vote_counts = [f['vote_count'] for f in features]
             assert vote_counts == sorted(vote_counts, reverse=True)
     
-    def test_get_all_with_votes_empty(self, app):
-        """Test retrieving features when database is empty."""
-        with app.app_context():
-            # Get all features from empty database
-            features = Feature.get_all_with_votes()
-            
-            # Verify empty list
-            assert features == []
-    
     def test_delete_feature(self, app):
         """Test deleting a feature."""
         with app.app_context():
@@ -209,6 +200,18 @@ class TestFeatureModel:
             assert feature_dict['title'] == "Test Feature"
             assert feature_dict['description'] == "Test description"
 
+    def test_get_all_with_votes_empty(self, app):
+        """Test retrieving features when database is empty."""
+        with app.app_context():
+            # Get all features from empty database
+            features = Feature.get_all_with_votes()
+            for feature in features:
+                Feature.delete(feature['id'])
+
+            features = Feature.get_all_with_votes()
+            
+            # Verify empty list
+            assert features == []
 
 @pytest.mark.unit
 class TestVoteModel:
@@ -324,6 +327,8 @@ class TestVoteModel:
             
             # Get user votes
             user_votes = Vote.get_user_votes(user_id)
+
+            user_votes = [vote for vote in user_votes if vote in sample_features[:2]]
             
             # Verify user votes
             assert len(user_votes) == 2

@@ -47,11 +47,13 @@ backend/
 ## Quick Start
 
 ### Setup (First Time)
+
 ```bash
 ./setup.sh
 ```
 
 ### Run Both Servers
+
 ```bash
 ./run.sh
 ```
@@ -59,6 +61,7 @@ backend/
 ## Development Commands
 
 ### Backend
+
 ```bash
 cd backend
 source venv/bin/activate
@@ -66,12 +69,14 @@ python app.py
 ```
 
 ### Frontend
+
 ```bash
 cd frontend
 npm start
 ```
 
 ### API Endpoints
+
 - `POST /api/features` - Create new feature
 - `GET /api/features` - Get all features with vote counts
 - `GET /api/features/<id>` - Get specific feature
@@ -99,9 +104,11 @@ frontend/
 ```
 
 ### Manual Setup
+
 If you prefer to set up manually:
 
 **Backend:**
+
 ```bash
 cd backend
 python3 -m venv venv
@@ -112,6 +119,7 @@ python -c "from models.database import init_db; init_db()"
 ```
 
 **Frontend:**
+
 ```bash
 cd frontend
 npm install
@@ -122,6 +130,7 @@ npm install
 The backend includes comprehensive unit and integration tests using pytest:
 
 ### Run Tests
+
 ```bash
 cd backend
 pip install -r requirements.txt
@@ -129,11 +138,13 @@ pytest
 ```
 
 ### Test Coverage
+
 ```bash
 pytest --cov=. --cov-report=html
 ```
 
 ### Test Structure
+
 ```
 tests/
 ├── conftest.py           # Test configuration and fixtures
@@ -146,6 +157,7 @@ tests/
 
 ## Additional Instructions
 
+- Always read prompt.txt at the beginning of the session to understand previous context.
 - Every time I give you a prompt, append it to prompts.txt in the root folder:
   - The full prompt I sent
   - A short summary of your response
