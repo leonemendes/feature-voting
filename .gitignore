@@ -4,4 +4,5 @@ __pycache__/
 .github/
 node_modules/
 venv/
+.expo/
 frontend/package-lock.json
