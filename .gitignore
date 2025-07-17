@@ -1,4 +1,7 @@
-*.vscode
+.vscode/
 __pycache__/
 .pytest_cache/
 .github/
+node_modules/
+venv/
+frontend/package-lock.json
