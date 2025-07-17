@@ -1,0 +1,78 @@
+PROMPT: From now on, for every prompt I send, do two things:
+1. Generate the requested code or answer
+2. Append to a file called prompts.txt in the project root:
+   - The full prompt I sent
+   - A short summary of your response
+Use actual file write commands so the file exists in the filesystem.
+
+RESPONSE SUMMARY: Acknowledged the request to append prompts and responses to prompts.txt file.
+
+---
+
+PROMPT: You are an expert AI software engineer.
+I need to build a "Feature Voting System" where users can post features and upvote others.
+Requirements:
+- Backend API in Python (Flask)
+- SQLite as database
+- React Native frontend for iOS and Android
+- Provide modular file structure for both backend and frontend
+- Include a README with run instructions
+Output:
+- Proposed file structure
+- High-level architecture diagram (in text)
+- Steps to implement
+
+RESPONSE SUMMARY: Provided comprehensive feature voting system architecture including modular file structures for Flask backend and React Native frontend, text-based architecture diagram showing API flow, and detailed 3-phase implementation plan covering backend development, frontend creation, and integration.
+
+---
+
+PROMPT: Generate the backend for the Feature Voting System using Python (Flask).
+Include:
+- SQLite database with migrations
+- Endpoints:
+   - POST /features (create a new feature)
+   - GET /features (list all features with vote count)
+   - POST /features/<id>/vote (upvote a feature)
+- Use modular code (app.py, models.py, routes.py, db.py)
+- Include comments for clarity
+
+RESPONSE SUMMARY: Created complete Flask backend with modular structure including app.py (main app), models.py (Feature/Vote models), routes.py (API endpoints), db.py (database setup/migrations), requirements.txt, and README.md. Implemented all requested endpoints with comprehensive error handling, CORS support, and detailed comments.
+
+---
+
+PROMPT: Merge what you created into the already created structures inside the existent folders, prioritizing what you have done now.
+
+RESPONSE SUMMARY: Successfully merged the new Flask backend implementation into the existing modular structure. Updated app.py to use existing routes/features.py and routes/votes.py blueprints, enhanced models/database.py with comprehensive database utilities, replaced models/feature.py and models/vote.py with full implementations, updated all route files with detailed API endpoints, removed duplicate files, and updated CLAUDE.md with complete backend documentation including structure and API endpoints.
+
+---
+
+PROMPT: Generate a React Native app for the Feature Voting System.
+Requirements:
+- Screen 1: List all features with vote count and upvote button
+- Screen 2: Form to create a new feature
+- Use Axios to call backend endpoints
+- Minimal styling
+Output files:
+- App.js
+- components/FeatureList.js
+- components/NewFeatureForm.js
+
+RESPONSE SUMMARY: Created complete React Native app with App.js (navigation setup), FeatureList.js (feature list with voting functionality), NewFeatureForm.js (feature creation form), comprehensive API service using Axios, package.json with dependencies, and supporting configuration files. Implemented minimal styling, pull-to-refresh, form validation, error handling, and user vote tracking. Updated CLAUDE.md with frontend documentation and setup instructions.
+
+---
+
+PROMPT: Create unit tests for the Flask backend using pytest.
+
+RESPONSE SUMMARY: Created comprehensive pytest test suite including pytest.ini configuration, conftest.py with fixtures and test utilities, unit tests for database models (test_models.py), unit tests for API endpoints (test_api.py), integration tests for complete workflows (test_full_workflow.py), and detailed test README. Added test dependencies to requirements.txt and updated CLAUDE.md with testing documentation. Test suite covers model functionality, API endpoints, error handling, complete workflows, concurrent operations, and data consistency.
+
+---
+
+PROMPT: Create a simple setup bash script for it with:  
+1. Backend setup:
+    - create venv if missing.  
+    - Activate vent.   
+    - install/upgrade pip + wheel + setuptools and install dependencies from requirements. 
+2. Frontend setup:   
+    - Run package.json.
+
+RESPONSE SUMMARY: Created setup.sh bash script that sets up both backend Python virtual environment and frontend Node.js environment. Script creates venv if missing, activates it, upgrades pip/wheel/setuptools, installs dependencies from requirements.txt, initializes database, and runs npm install for frontend. Also created run.sh script to start both servers simultaneously. Updated CLAUDE.md with quick start instructions.
